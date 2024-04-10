@@ -4,6 +4,8 @@ import cucumber.api.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginStepsDefs {
     WebDriver driver;
     String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
@@ -13,6 +15,7 @@ public class LoginStepsDefs {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\brajak\\Desktop\\Chromedriver\\chromedriver.exe");
         driver=new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
     }
 
     @Given("^User is on Orange HRM Login Page$")
